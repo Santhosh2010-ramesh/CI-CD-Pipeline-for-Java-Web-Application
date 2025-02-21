@@ -11,8 +11,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Compile and package the Java application using Maven
-                sh 'mvn clean package'
+                dir('Java_Webapp') {  // Modify this path as per your directory structure
+                    sh 'mvn clean package'
             }
         }
 
