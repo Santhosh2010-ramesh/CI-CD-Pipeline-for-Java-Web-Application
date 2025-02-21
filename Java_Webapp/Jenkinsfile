@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Cloning the repository from GitHub
+                git 'https://github.com/your-username/java-webapp.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Compile and package the Java application using Maven
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run unit tests using Maven
+                sh 'mvn test'
+            }
+        }
+
+        stage('Deploy to Tomcat') {
+            steps {
+                // Deploy the WAR file to Tomcat server using SCP
+                sh 'scp target/java-webapp.war user@tomcat-server:/var/lib/tomcat/webapps/'
+            }
+        }
+    }
+}
