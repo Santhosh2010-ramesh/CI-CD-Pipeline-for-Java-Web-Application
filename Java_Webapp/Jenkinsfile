@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Santhosh2010-ramesh/CI-CD-Pipeline-for-Java-Web-Application.git'
+                git url:'https://github.com/Santhosh2010-ramesh/CI-CD-Pipeline-for-Java-Web-Application.git',branch:"main"
             }
         }
 
